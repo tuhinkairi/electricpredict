@@ -8,14 +8,14 @@ const NavBar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40 && navbar.current) {
+    if (window.scrollY > 10 && navbar.current) {
       navbar.current.classList.add('bg-gray-900');
     } else if (navbar.current) {
       navbar.current.classList.remove('bg-gray-900');
-    }
+    } 
   });
   return ( 
-    <nav ref={navbar} className="bg-gray-900 text-white fixed top-0 left-0 right-0 z-50">
+    <nav ref={navbar} className=" text-white fixed top-0 left-0 right-0 z-50 ">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="text-2xl font-bold">Power Prediction</Link>
