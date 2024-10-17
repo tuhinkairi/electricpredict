@@ -5,8 +5,8 @@ import HowItWork from './HowItWork'
 import About from './About'
 import Contact from './Contact'
 export default function Home() {
-  return (
-    <div className="bg-gray-900">
+  return ( 
+    <div id='home' className="bg-gray-900">
         <HeroSection />
         <Feature />
         <HowItWork />

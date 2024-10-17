@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Otp from './Otp';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ export default function Register() {
     password: '',
     confirmPassword: '',
   });
+  const [otpstate, setotpstate] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +25,20 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle registration logic here
-    console.log('Registration submitted:', formData);
+    if(formData.password===formData.confirmPassword &&formData.confirmPassword !==""){
+      if(formData.password.length>=8){
+        
+        setotpstate(true)
+        console.log('Registration submitted:', formData);
+      }
+      else{
+        alert('password must be length 8 or more ')
+      }
+    }
+    else{
+
+      alert('password not matched')
+    }
   };
 
   const handleGoogleRegister = () => {
@@ -31,7 +46,8 @@ export default function Register() {
     console.log('Google registration initiated');
   };
 
-  return (
+  return (<>
+    {otpstate ? <Otp/> : (
     <section className="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8 mt-10">
         <motion.div
@@ -126,6 +142,8 @@ export default function Register() {
           </p>
         </motion.div>
       </div>
-    </section>
+    </section>)}
+  </>
   );
+
 }

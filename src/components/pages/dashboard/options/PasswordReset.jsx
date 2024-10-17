@@ -9,7 +9,12 @@ export default function PasswordReset() {
 
   const handlePasswordReset = () => {
     // Logic for password reset (e.g., API call)
-    setMessage('Password reset link has been sent to your email.');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(emailPattern.test(email)){
+        setMessage('Password reset link has been sent to your email.');
+    } else {
+        setMessage('Please enter a valid email address.');
+    }
   };
 
   return (
@@ -30,18 +35,19 @@ export default function PasswordReset() {
           <input
             type="email"
             placeholder="Email Address"
+            required={true}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 mb-4 rounded border border-gray-300"
+            className="w-full p-2 mb-4 rounded border border-gray-300 text-gray-900"
           />
-          <button
+          <button 
             onClick={handlePasswordReset}
             className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition duration-300"
           >
             Send Reset Link
           </button>
           <div className="mt-4 text-center">
-            <Link to="/dashboard/options/security" className="text-gray-300 hover:text-orange-400 transition-colors">
+            <Link to="/dashboard/options/" className="text-gray-300 hover:text-orange-400 transition-colors">
               Back to Security Settings
             </Link>
           </div>

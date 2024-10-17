@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navbar = useRef();
   const toggleMenu = () => {
@@ -29,7 +30,7 @@ const NavBar = () => {
 
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="/" className="hover:text-orange-400 transition-colors">Home</a>
+            <Link to="/" className="hover:text-orange-400 transition-colors">Home</Link>
             <a href="/#about" className="hover:text-orange-400 transition-colors">About</a>
             <a href="/#features" className="hover:text-orange-400 transition-colors">Features</a>
             <a href="/#how-it-works" className="hover:text-orange-400 transition-colors">How It Works</a>
@@ -40,7 +41,11 @@ const NavBar = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <>
+          {
+            navbar.current.classList.add('bg-gray-900')
+          }
+          <div className="md:hidden bg-gray-900 ">
             <div className="flex flex-col space-y-4 py-4">
               <Link href="/" className="hover:text-orange-400 transition-colors">Home</Link>
               <a href="/#about" className="hover:text-orange-400 transition-colors">About</a>
@@ -50,6 +55,7 @@ const NavBar = () => {
               <Link to="/login" className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded text-center">Account</Link>
             </div>
           </div>
+          </>
         )}
       </div>
     </nav>

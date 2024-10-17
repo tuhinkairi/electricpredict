@@ -13,7 +13,7 @@ export default function HeroSection() {
             Harness the power of AI to forecast your electricity consumption based on weather patterns and appliance usage.
           </p>
           <Link 
-            to="/predictions" 
+            to="/dashboard/predictions" 
             className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
           >
             Start Predicting Now

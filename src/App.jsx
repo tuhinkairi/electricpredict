@@ -12,11 +12,14 @@ import Prediction from "./components/pages/dashboard/analytics/Prediction";
 import Analytics from "./components/pages/dashboard/analytics/Analytics";
 import PasswordReset from "./components/pages/dashboard/options/PasswordReset"; 
 import ProfileSetting from "./components/pages/dashboard/options/ProfileSetting";
+import ScrollToTop from "./components/utils/ScrollToTop";
 export default function App() {
+  
   return (
     <div className="">
       <BrowserRouter>
         <NavBar />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
