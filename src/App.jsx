@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./components/layout/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/pages/home/Home";
@@ -10,11 +10,13 @@ import Dashboard from "./components/pages/dashboard/Dashboard";
 import Chat from "./components/pages/dashboard/chat/Tip";
 import Prediction from "./components/pages/dashboard/analytics/Prediction";
 import Analytics from "./components/pages/dashboard/analytics/Analytics";
-import PasswordReset from "./components/pages/dashboard/options/PasswordReset"; 
+import PasswordReset from "./components/pages/dashboard/options/PasswordReset";
 import ProfileSetting from "./components/pages/dashboard/options/ProfileSetting";
 import ScrollToTop from "./components/utils/ScrollToTop";
+
 export default function App() {
   
+
   return (
     <div className="">
       <BrowserRouter>

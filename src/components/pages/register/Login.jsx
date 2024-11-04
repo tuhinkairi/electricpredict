@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -21,6 +22,7 @@ export default function Login() {
     e.preventDefault();
     // Here you would typically handle the login logic
     console.log('Login submitted:', formData);
+    navigate('/dashboard')
   };
 
   const handleGoogleLogin = () => {
